@@ -17,6 +17,7 @@ header {
     background-color: #333;
     color: white;
     padding: 20px 0;
+    position: relative;
 }
 
 header .container {
@@ -46,6 +47,35 @@ nav ul li a {
     color: white;
     text-decoration: none;
     font-size: 1rem;
+}
+
+/* Sidebar Menu styles */
+nav {
+    display: block;
+}
+
+nav ul {
+    display: block;
+    gap: 10px;
+    text-align: center;
+}
+
+nav ul li {
+    display: block;
+}
+
+nav ul li a {
+    padding: 10px;
+    background-color: #333;
+    color: white;
+    display: block;
+    text-decoration: none;
+}
+
+.menu-icon {
+    display: none;
+    font-size: 2rem;
+    cursor: pointer;
 }
 
 /* Hero Section */
@@ -121,50 +151,48 @@ footer .container {
 
 /* Responsive styles */
 
-/* Mobile Styles */
-@media (max-width: 768px) {
-    header .container {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    nav ul {
-        flex-direction: column;
-        margin-top: 10px;
-    }
-
-    .hero h2 {
-        font-size: 2rem;
-    }
-
-    .hero p {
-        font-size: 1rem;
-    }
-
-    .content .container {
-        flex-direction: column;
-    }
-
-    .content .card {
-        margin-bottom: 20px;
-    }
-}
-
-/* Tablet Styles */
+/* Mobile and Tablet Styles */
 @media (max-width: 1024px) {
-    .hero h2 {
-        font-size: 2.2rem;
+
+    /* Hide the navigation on small screens by default */
+    nav {
+        display: none;
     }
 
-    .hero p {
-        font-size: 1.1rem;
+    /* Show the hamburger menu */
+    .menu-icon {
+        display: block;
     }
 
-    .content .container {
-        flex-direction: row;
+    /* Sidebar style when active */
+    nav.active {
+        display: block;
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 250px;
+        background-color: #333;
+        padding-top: 60px;
     }
 
-    .content .card {
-        flex: 1;
+    /* Sidebar links */
+    nav.active ul {
+        display: block;
+    }
+
+    nav.active ul li {
+        text-align: left;
+        padding: 10px;
+        border-bottom: 1px solid #444;
+    }
+
+    nav.active ul li a {
+        padding: 15px;
+        background-color: #333;
+        color: white;
+        display: block;
+        text-decoration: none;
     }
 }
+
